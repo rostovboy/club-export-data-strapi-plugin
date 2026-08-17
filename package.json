@@ -31,7 +31,7 @@
   "dependencies": {},
   "devDependencies": {
     "@strapi/strapi": "^5.43.0",
-    "@strapi/sdk-plugin": "^6.1.1",
+    "@strapi/sdk-plugin": "^5.4.0",
     "prettier": "^3.9.6",
     "@strapi/design-system": "^2.2.4",
     "@strapi/icons": "^2.2.4",
@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@strapi/strapi": "^5.43.0",
-    "@strapi/sdk-plugin": "^6.1.1",
+    "@strapi/sdk-plugin": "^5.4.0",
     "@strapi/design-system": "^2.2.4",
     "@strapi/icons": "^2.2.4",
     "react-intl": "^6.8.9",
