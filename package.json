@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "keywords": [],
   "type": "commonjs",
   "exports": {
@@ -30,7 +30,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@strapi/strapi": "^5.52.0",
+    "@strapi/strapi": "^5.43.0",
     "@strapi/sdk-plugin": "^6.1.1",
     "prettier": "^3.9.6",
     "@strapi/design-system": "^2.2.4",
@@ -42,11 +42,11 @@
     "styled-components": "^6.5.3",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "@strapi/typescript-utils": "^5.52.0",
+    "@strapi/typescript-utils": "^5.43.0",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^5.52.0",
+    "@strapi/strapi": "^5.43.0",
     "@strapi/sdk-plugin": "^6.1.1",
     "@strapi/design-system": "^2.2.4",
     "@strapi/icons": "^2.2.4",
