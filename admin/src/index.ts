@@ -2,11 +2,17 @@ import { getTranslation } from "./utils/getTranslation";
 import { PLUGIN_ID } from "./pluginId";
 import { Initializer } from "./components/Initializer";
 import { PluginIcon } from "./components/PluginIcon";
+import { ExportMembersButton } from "./components/ExportMembersButton";
 
 import type { StrapiApp } from "@strapi/strapi/admin";
 
 const plugin: StrapiApp["appPlugins"][string] = {
   register(app) {
+    app.getPlugin("content-manager").injectComponent("listView", "actions", {
+      name: "export-members-button",
+      Component: ExportMembersButton,
+    });
+
     app.addMenuLink({
       to: `plugins/${PLUGIN_ID}`,
       icon: PluginIcon,
