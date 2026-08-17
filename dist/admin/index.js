@@ -1,4 +1,3 @@
 "use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const index = require("./index-CCf3YTmU.js");
-exports.default = index.plugin;
+const index = require("../_chunks/index-CCf3YTmU.js");
+module.exports = index.plugin;

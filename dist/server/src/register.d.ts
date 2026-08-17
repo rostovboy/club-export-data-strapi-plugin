@@ -1,4 +1,4 @@
-import { Core } from '@strapi/strapi';
+import type { Core } from "@strapi/strapi";
 declare const register: ({ strapi }: {
     strapi: Core.Strapi;
 }) => void;

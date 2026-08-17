@@ -1,8 +1,8 @@
-import { Core } from '@strapi/strapi';
+import type { Core } from "@strapi/strapi";
 declare const service: ({ strapi }: {
     strapi: Core.Strapi;
 }) => {
     getWelcomeMessage(): string;
-    exportMembersXlsx(): Promise<Buffer<ArrayBufferLike>>;
+    exportMembersXlsx(): Promise<Buffer>;
 };
 export default service;

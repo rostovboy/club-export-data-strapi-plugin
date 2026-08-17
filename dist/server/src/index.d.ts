@@ -1,12 +1,14 @@
+/// <reference types="node" />
+/// <reference types="node" />
 declare const _default: {
     register: ({ strapi }: {
-        strapi: import('@strapi/types/dist/core').Strapi;
+        strapi: import("@strapi/types/dist/core").Strapi;
     }) => void;
     bootstrap: ({ strapi }: {
-        strapi: import('@strapi/types/dist/core').Strapi;
+        strapi: import("@strapi/types/dist/core").Strapi;
     }) => void;
     destroy: ({ strapi }: {
-        strapi: import('@strapi/types/dist/core').Strapi;
+        strapi: import("@strapi/types/dist/core").Strapi;
     }) => void;
     config: {
         default: {};
@@ -14,7 +16,7 @@ declare const _default: {
     };
     controllers: {
         controller: ({ strapi }: {
-            strapi: import('@strapi/types/dist/core').Strapi;
+            strapi: import("@strapi/types/dist/core").Strapi;
         }) => {
             index(ctx: any): void;
             exportMembers(ctx: any): Promise<void>;
@@ -32,6 +34,9 @@ declare const _default: {
                 };
             }[];
         };
+        /**
+         * Plugin server methods
+         */
         admin: () => {
             type: string;
             routes: {
@@ -46,10 +51,10 @@ declare const _default: {
     };
     services: {
         service: ({ strapi }: {
-            strapi: import('@strapi/types/dist/core').Strapi;
+            strapi: import("@strapi/types/dist/core").Strapi;
         }) => {
             getWelcomeMessage(): string;
-            exportMembersXlsx(): Promise<Buffer<ArrayBufferLike>>;
+            exportMembersXlsx(): Promise<Buffer>;
         };
     };
     contentTypes: {};
