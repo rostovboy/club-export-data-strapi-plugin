@@ -20213,12 +20213,23 @@ const service = ({ strapi }) => ({
         m.phone AS "Телефон",
         m.country AS "Страна",
         m.city AS "Город",
+        m.registration_source AS "Источник регистрации",
         to_char(m.created_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI:SS') AS "Дата регистрации",
         to_char(m.last_login_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI:SS') AS "Последний вход",
         CASE
           WHEN pp.id IS NOT NULL THEN 'Да'
           ELSE 'Нет'
         END AS "Профессионал",
+        COALESCE(
+          CASE
+            WHEN jsonb_typeof(pp.professional_types::jsonb) = 'array' THEN (
+              SELECT string_agg(value, ', ')
+              FROM jsonb_array_elements_text(pp.professional_types::jsonb) AS value
+            )
+            ELSE ''
+          END,
+          ''
+        ) AS "Тип деятельности",
         COALESCE(
           CASE
             WHEN jsonb_typeof(pp.activity_types::jsonb) = 'array' THEN (
@@ -20228,7 +20239,8 @@ const service = ({ strapi }) => ({
             ELSE ''
           END,
           ''
-        ) AS "Типы деятельности"
+        ) AS "Сфера услуг",
+        pp.experience AS "Опыт"
       FROM members m
       LEFT JOIN members_professional_profile_lnk mppl
         ON mppl.member_id = m.id
@@ -20245,10 +20257,13 @@ const service = ({ strapi }) => ({
       { wch: 18 },
       { wch: 18 },
       { wch: 24 },
+      { wch: 24 },
       { wch: 22 },
       { wch: 22 },
       { wch: 16 },
-      { wch: 36 }
+      { wch: 36 },
+      { wch: 36 },
+      { wch: 18 }
     ];
     utils.book_append_sheet(workbook, worksheet, "Members");
     return writeSync(workbook, {
