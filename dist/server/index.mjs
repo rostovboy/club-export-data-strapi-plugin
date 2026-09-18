@@ -20214,8 +20214,9 @@ const service = ({ strapi }) => ({
         m.country AS "Страна",
         m.city AS "Город",
         m.registration_source AS "Источник регистрации",
-        to_char(m.created_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI:SS') AS "Дата регистрации",
-        to_char(m.last_login_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI:SS') AS "Последний вход",
+        to_char(m.created_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY') AS "Дата регистрации",
+        to_char(m.last_login_at AT TIME ZONE 'UTC' AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY') AS "Последний вход",
+        COALESCE(m.activity_days_90, 0) AS "Активность за 90 дней",
         CASE
           WHEN pp.id IS NOT NULL THEN 'Да'
           ELSE 'Нет'
@@ -20258,8 +20259,9 @@ const service = ({ strapi }) => ({
       { wch: 18 },
       { wch: 24 },
       { wch: 24 },
-      { wch: 22 },
-      { wch: 22 },
+      { wch: 16 },
+      { wch: 16 },
+      { wch: 24 },
       { wch: 16 },
       { wch: 36 },
       { wch: 36 },
