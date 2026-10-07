@@ -20241,7 +20241,9 @@ const service = ({ strapi }) => ({
           END,
           ''
         ) AS "Сфера услуг",
-        pp.experience AS "Опыт"
+        pp.experience AS "Опыт",
+        COALESCE(m.bonus_earned_total, 0) AS "Бонусы за все время",
+        COALESCE(m.bonus_balance, 0) AS "Баланс бонусов"
       FROM members m
       LEFT JOIN members_professional_profile_lnk mppl
         ON mppl.member_id = m.id
@@ -20265,7 +20267,9 @@ const service = ({ strapi }) => ({
       { wch: 16 },
       { wch: 36 },
       { wch: 36 },
-      { wch: 18 }
+      { wch: 18 },
+      { wch: 24 },
+      { wch: 20 }
     ];
     utils.book_append_sheet(workbook, worksheet, "Members");
     return writeSync(workbook, {
