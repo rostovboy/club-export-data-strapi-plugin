@@ -1699,8 +1699,8 @@ var CRC32 = /* @__PURE__ */ function() {
   return CRC322;
 }();
 var CFB = /* @__PURE__ */ function _CFB() {
-  var exports = {};
-  exports.version = "1.2.1";
+  var exports$1 = {};
+  exports$1.version = "1.2.1";
   function namecmp(l, r) {
     var L = l.split("/"), R = r.split("/");
     for (var i2 = 0, c = 0, Z = Math.min(L.length, R.length); i2 < Z; ++i2) {
@@ -3261,12 +3261,12 @@ var CFB = /* @__PURE__ */ function _CFB() {
   function cfb_gc(cfb) {
     rebuild_cfb(cfb, true);
   }
-  exports.find = find;
-  exports.read = read;
-  exports.parse = parse;
-  exports.write = write;
-  exports.writeFile = write_file;
-  exports.utils = {
+  exports$1.find = find;
+  exports$1.read = read;
+  exports$1.parse = parse;
+  exports$1.write = write;
+  exports$1.writeFile = write_file;
+  exports$1.utils = {
     cfb_new,
     cfb_add,
     cfb_del,
@@ -3281,7 +3281,7 @@ var CFB = /* @__PURE__ */ function _CFB() {
     _inflateRaw: _inflate,
     consts
   };
-  return exports;
+  return exports$1;
 }();
 function blobify(data) {
   if (typeof data === "string") return s2ab(data);

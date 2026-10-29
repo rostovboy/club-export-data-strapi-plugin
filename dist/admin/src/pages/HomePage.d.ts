@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare const HomePage: () => import("react").JSX.Element;
+declare const HomePage: () => import("react/jsx-runtime").JSX.Element;
 export { HomePage };
